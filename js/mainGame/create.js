@@ -1,19 +1,10 @@
 import {quizList} from './quizList.js'
-// import * as answer from './answerCheck.js';
 import { gameData } from './gameData.js';
 import { endGame } from './result.js';
 
 const $layerArray = [];
 let idx = Math.floor(Math.random()*quizList.length);
-// console.log(idx);
-// Math.random()*quizList.length
 
-// console.log(quizList.length);
-// console.log(quizList[96]);
-
-
-
-// console.log(gameData.words[idx++]);
 
 // 랜덤으로 생성하는 함수!
 const randomCreate = () => {    
@@ -67,12 +58,6 @@ const gameStart = () => {
           gameData.combo=0;
           const $comboCount = document.getElementById('combo-score');
           $comboCount.innerText=0;
-
-          // $gameDisplay = document.querySelector('.game-display');
-          // console.log($gameDisplay);
-          // $gameDisplay.setAttribute('style', 'border:4px solid red;');
-
-          // --gameData.life;
           
           // 목숨 0 판단 - 결과창 
           if (gameData.life === 0){
@@ -85,13 +70,10 @@ const gameStart = () => {
             },1000);
             
 
-
-            // console.log($showResult);
-            // const $resultBox = document.createElement('div');
             const $resultBox = document.querySelector('.means');
             clearInterval(randomInterval);
 
-            // const $gameDisplay = document.querySelector('.game-display');
+
             const $reset = [...document.querySelectorAll('.fall')];
             $reset.forEach(($remove) => {
               $remove.remove();
@@ -100,8 +82,8 @@ const gameStart = () => {
             gameData.correctArray.forEach((word) => {
               $resultBox.innerHTML += word +'<br>';
             });
-            // const $words = document.querySelector('.means');
-            // $words.appendChild($resultBox);
+
+            // 결과창
             endGame();
           }
         }

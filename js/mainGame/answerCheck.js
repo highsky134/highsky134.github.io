@@ -1,6 +1,4 @@
-// import {quizList} from './quizList.js';
 import { gameData } from './gameData.js';
-import { $layerArray } from './create.js';
 
 let count = 0; // 콤보 카운트 변수
 const $typing = document.getElementById('typing');
@@ -41,26 +39,19 @@ const answerChecks = (answer) => {
     const $comboCount = document.getElementById('combo-score');
     const $comboBar=document.getElementById('combo-name');
 
+    // 내려오는 컨텐츠와 입력 값 비교
     if(quizContent.includes(answer)){
         // console.log(`인덱스 : ${quizContent.indexOf(answer)}`);
-        // $gameDisplay.removeChild(onQuizBox[quizContent.indexOf(answer)]);
         const $explosive = document.createElement('div');
         $explosive.classList.add('explosion');
         // console.log($explosive);
         onQuizBox[quizContent.indexOf(answer)].appendChild($explosive);
         // console.log(quizContent);
 
-        // onQuizBox[quizContent.indexOf(answer)].textContent='123';
-        // onQuizBox[quizContent.indexOf(answer)].classList.add('explosion');
-
-        
-        // onQuizBox[quizContent.indexOf(answer)].setAttribute('style','z-index:20000;display:none;');
         setTimeout(() => {
-            // console.log("되냐?");
             onQuizBox[quizContent.indexOf(answer)].remove();
         },300);
-        
-        // console.log($explosive + "테스트");
+ 
         $typing.value = '';       
         
         const $scoreCount = document.querySelector('#score');
@@ -87,8 +78,6 @@ const answerChecks = (answer) => {
         setTimeout(function() {
             // console.log('콤보삭제');
             $comboNum.classList.remove('combo-effect');
-            // $comboBar.innerText='';
-            // $comboBar.style.display='none';
           }, 1000);
 
         gameData.score =  gameData.score + (gameData.combo * 10 ) + 90;
@@ -99,13 +88,9 @@ const answerChecks = (answer) => {
         
         gameData.correctList.push(' ' +answer);
         
-        //임시 - 결과창을 강제로 띄우는 방법
-        // gameData.life--;
-        // console.log(gameData.life);
+
     } else{
-        
-        // 틀릴시 콤보 초기화, 입력 박스 흔들림 애니메이션 주기 정도?
-        // onQuizBox[idx].classList.add('wrong-answer-shake');
+
         if(gameData.highCombo<gameData.combo){ 
             gameData.highCombo = gameData.combo;
         }
@@ -113,12 +98,6 @@ const answerChecks = (answer) => {
         gameData.combo = 0;
         $typing.value = '';
 
-        // 틀릴 시 입력창에 효과주기
-        // classList.add(asdasd)
-        // setTimeout(() => {
-        //     classList.remove()
-        // },1000);
-        // alert('틀림');
     }
 
 };

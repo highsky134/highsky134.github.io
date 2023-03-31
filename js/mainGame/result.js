@@ -16,8 +16,4 @@ const endGame = () => {
 
 };
 
-const showResultPage = () => {
-
-}
-
 export {endGame};

@@ -2,7 +2,7 @@ import { gameData } from "./gameData.js";
 
 
 const gameLife = () => {
-    gameData.life = 5; //난이도에 따른 목숨값을 받아와야함
+    gameData.life = 5; 
     gameData.combo = 0;
     gameData.score = 0;
     gameData.correctArray = [];

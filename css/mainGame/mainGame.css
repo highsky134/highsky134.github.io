@@ -1,0 +1,702 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap');
+
+@font-face {
+    font-family: 'KCC-eunyoung';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/KCC-eunyoung-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'MaplestoryOTFBold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/MaplestoryOTFBold.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+/* fall 클래스가 붙으면 떨어지는 애니메이션 */
+/* 애니메이션 10s 속성으로 만들자  */
+body {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    /* background: black;          */
+    background: url('../../css/image/pipe.jpg') center / cover;
+    z-index: 5000;
+
+}
+
+.fade-in {
+    transform: scale(0);
+    transition: all 1s;
+}
+
+.fade-in-two {
+    animation: endTiming 1s forwards;
+}
+
+@keyframes endTiming {
+    0% {
+        opacity: 0.8;
+    }
+
+    50% {
+
+        opacity: 0.4;
+    }
+
+    100% {
+        transform: scale(0.4);
+        rotate: 1080deg;
+        opacity: 0;
+    }
+}
+
+
+
+/* 떨어지는 물방울 */
+.fall {
+    font-size: 20px;
+    /* background-image: url('../../css/image/pngwing.com.png'); */
+    animation: falling 5s linear forwards;
+    border-radius: 0% 100% 38% 62% / 0% 62% 35% 100%;
+    /* 0% 100% 54% 58% / 0% 71% 45% 100%; */
+    color: #ffffff;
+    box-shadow: 0px 0px 30px #141414;
+    width: 70px;
+    height: 65px;
+    text-align: center;
+    line-height: 60px;
+    display: inline-block;
+    white-space: nowrap;
+    background: transparent;
+
+}
+
+@keyframes falling {
+    0% {
+        transform: translate(0, 0);
+    }
+
+    85% {
+        opacity: 0.95;
+    }
+
+    100% {
+        opacity: 0;
+        transform: translate(0, 570px);
+    }
+}
+
+.shadow {
+    opacity: 1;
+}
+
+/* 정답 시 박스에 터지는 효과  */
+.explosion {
+    background: url('../../css/image/pngwing.png') center / cover;
+    position: relative;
+    /* width: fit-content; */
+    height: 70px;
+    top: -59px;
+    left: 4px;
+    animation: explos 0.3s forwards linear;
+    /* border-radius: 50%;
+            box-shadow: 0 0 20px #fff; */
+
+}
+
+@keyframes explos {
+    0% {
+        transform: scale(1.3);
+    }
+
+    50% {
+        transform: scale(1.8);
+
+    }
+
+    100% {
+        transform: scale(0);
+        opacity: 0;
+    }
+}
+
+
+
+/* 사용자 입력을 받는 컨테이너 */
+.start-container {
+    width: 100%;
+    height: inherit;
+    position: absolute;
+    background: black;
+    color: white;
+    z-index: 10000;
+    /* display: none; */
+    /* background: url('../../css/image/pipe.jpg') center / cover; */
+}
+
+.start-container .start-box-container {
+    position: relative;
+    width: 30%;
+    height: 300px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    /* border: 1px solid white; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+}
+
+.start-container .start-box-container .start-c1 input {
+    color: white;
+    width: 100%;
+    height: 50px;
+    padding-left: 20px;
+    /* border: 3px solid #fff; */
+    /* box-sizing: border-box; */
+    border: 4px solid #fff;
+    background-color: #000;
+    border-radius: 30px;
+
+
+}
+
+.start-container .start-box-container .start-c1 input:focus {
+    border: 4px solid #27D4B6;
+    box-shadow: 0px 0px 20px #27D4B6;
+}
+
+.start-container .start-box-container .start-c2 {
+    display: flex;
+    /* justify-content: space-between; */
+    border: solid 2px white;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.start-container .start-box-container .start-c2:hover {
+    border: 4px solid #27D4B6;
+    box-shadow: 0px 0px 20px #27D4B6;
+}
+
+
+/* 인풋타입!!! */
+input[type=radio] {
+    position: absolute;
+    visibility: hidden;
+    display: none;
+}
+
+label {
+    width: 33.3%;
+    color: white;
+    display: inline-block;
+    cursor: pointer;
+    font-weight: bold;
+    padding: 25px 20px;
+    text-align: center;
+}
+
+input[type=radio]:checked+label {
+    color: white;
+    background: #27D4B6;
+}
+
+
+
+
+
+
+.start-container .start-box-container .start-c3 {
+    text-align: center;
+}
+
+.start-container .start-box-container .start-c3 input {
+    background: black;
+    color: white;
+    border: 4px solid #fff;
+    padding: 20px 50px;
+    box-sizing: border-box;
+    border-radius: 30px;
+}
+
+.start-container .start-box-container .start-c3 input:hover {
+    color: skyblue;
+    border: 4px solid #27D4B6;
+    box-shadow: 0px 0px 20px #27D4B6;
+
+}
+
+
+
+
+.main-box {
+    height: 750px;
+    width: 1200px;
+    position: relative;
+    top: 150px;
+    margin: 0 auto;
+}
+
+.container {
+    position: relative;
+    margin: 0 auto;
+    width: 100%;
+    height: 750px;
+    background: #000;
+    z-index: 5000;
+
+}
+
+
+.container .game-container {
+    height: 80%;
+    display: flex;
+    position: relative;
+    border-radius: 20px;
+    border: 1px solid #fff;
+
+}
+
+/* 도움말 설명 커튼 */
+.container .game-container .game-helpbox {
+    height: 100%;
+    width: 75%;
+    background: black;
+    position: absolute;
+    z-index: 100;
+    border-radius: 20px 0px 0px 20px;
+    padding-top: 20px;
+    text-align: center;
+    font-size: 30px;
+    opacity: 0.8;
+}
+
+.container .game-container .game-helpbox .help-text {
+    opacity: 1;
+    color: white;
+    padding-top: 20px;
+}
+
+.container .game-container .game-helpbox .help-text .help-start {
+    text-align: right;
+    padding-top: 50px;
+    transform: rotate(-4deg);
+    animation: start 1s linear infinite alternate;
+}
+
+@keyframes start {
+    to {
+        transform: scale(1.2);
+    }
+}
+
+
+/* 소나기 떨어지는 화면 */
+
+.container .game-container .game-display {
+    /* background-image: url('https://i.pinimg.com/originals/d0/56/49/d056496110cc0985d217402b66ceee90.gif'); */
+    background-color: #000;
+    color: #fff;
+    width: 75%;
+    height: 550px;
+    display: flex;
+    justify-content: space-between;
+    padding-left: 50px;
+    padding-right: 50px;
+    overflow: hidden;
+    position: relative;
+    letter-spacing: 3px;
+    border-radius: 20px;
+    font-family: 'MaplestoryOTFBold', serif;
+    font-weight: 300;
+
+
+}
+
+
+.container .game-container .game-display .layer {
+    width: 50px;
+    height: 60px;
+
+
+}
+
+/* 게임화면 땅 부분 */
+
+.container .game-container .ground {
+    position: absolute;
+    width: 75%;
+    height: 50px;
+    bottom: 0;
+    /* background-image: url('../../css/image/grass.png'); */
+    background: url('../../css/image/laser.png') center / cover;
+    border-bottom-left-radius: 20px;
+
+}
+
+/* 우측 정보판 */
+
+.container .game-container .game-status {
+    width: 25%;
+    background: #000;
+    color: #fff;
+    border: 1px solid #fff;
+    border-radius: 20px;
+    border-bottom-left-radius: 0px;
+    border-top-left-radius: 0px;
+
+}
+
+
+
+.container .game-container .game-status .combo {
+    height: 50%;
+
+}
+
+/* 콤보 박스 */
+.container .game-container .game-status .combo .combo-box {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    left: 50%;
+    top: 50%;
+    width: 150px;
+    height: 150px;
+    transform: translate(-75px, -75px);
+    font-size: 30px;
+}
+
+.container .game-container .game-status .combo .combo-box #combo-score {
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 90px;
+}
+
+.container .game-container .game-status .combo .combo-box #combo-name {
+    position: absolute;
+    top: 0%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 40px;
+    text-align: center;
+
+
+}
+
+
+
+.combo-effect {
+    animation-name: upNdown;
+    animation-duration: 0.5s;
+    animation-fill-mode: both;
+
+}
+
+@keyframes upNdown {
+    0% {
+        transform: translate(-50%, -50%) translateY(0);
+    }
+
+    50% {
+        transform: translate(-50%, -50%) translateY(-50px);
+    }
+
+    75% {
+        transform: translate(-50%, -50%) translateY(20px);
+    }
+
+    100% {
+        transform: translate(-50%, -50%) translateY(0);
+    }
+}
+
+
+.container .game-container .game-status .status-level {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 50px;
+    margin: 20px;
+}
+
+/* 우측 LEVEL 박스 */
+
+.container .game-container .game-status .status-level .first {
+    text-shadow: 0 0 8px #fff, 0 0 10px #fff, 0 0 21px #fff, 0 0 10px #ff0080,
+        0 0 10px #ff0080, 0 0 10px #ff0080, 0 0 10px #ff0080, 0 0 10px #ff0080;
+}
+
+
+
+.container .game-container .game-status {
+    font-family: 'Raleway', sans-serif;
+}
+
+.container .game-container .game-status .status-table {
+    font-size: 20px;
+}
+
+
+/* 우측 LIFE 박스 */
+
+.container .game-container .game-status .status-life {
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 50px;
+    margin: 20px;
+
+}
+
+.container .game-container .game-status .status-life .first {
+    text-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 21px #fff, 0 0 10px #FA1C16,
+        0 0 10px #FA1C16, 0 0 10px #FA1C16, 0 0 10px #FA1C16, 0 0 10px #FA1C16;
+}
+
+/* 우측 SOCORE 박스 */
+.container .game-container .game-status .status-score {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 50px;
+    margin: 20px;
+
+
+
+}
+
+.container .game-container .game-status .status-score .first {
+    text-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 21px #fff, 0 0 10px #426DFB,
+        0 0 10px #426DFB, 0 0 10px #426DFB, 0 0 10px #426DFB, 0 0 10px #426DFB;
+}
+
+/* 아래쪽 input 태그 */
+
+.container .input-container {
+    height: 20%;
+    background: #000;
+}
+
+.container .input-container .input-box {
+    padding-top: 5px;
+    height: 100%;
+    display: flex;
+
+}
+
+.container .input-container .input-box input {
+    width: 75%;
+    border-radius: 20px;
+    font-size: 2em;
+    text-align: center;
+    background: #000;
+    color: #fff;
+    border: 1px solid #fff;
+}
+
+/* 틀릴시 input 빨간색 추가 */
+
+.container .input-container .input-box button {
+    width: 25%;
+    border-radius: 20px;
+    border: 1px solid #fff;
+    background: #000;
+    color: #fff;
+    cursor: pointer;
+    margin-left: 2px;
+    font-size: 30px;
+}
+
+.container .input-container .input-box button:hover {
+    border: 3px solid #fff;
+    /* transform: scale(0.9752423); */
+    box-shadow: 0 0 20px #5590ff;
+
+}
+
+
+/* 결과 화면 */
+
+.result-container {
+    /* display: none; */
+    /* main 작업때문에 추가 */
+    position: absolute;
+    width: fit-content;
+    height: 700px;
+
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #000;
+    z-index: -1000;
+    /* 구동할때 -1000 해야됨 */
+
+    font-family: 'KCC-eunyoung', serif;
+    opacity: 0;
+}
+
+.start-container-animation {
+    /* z-index:10005; */
+    animation: resultShow 1s reverse linear;
+
+}
+
+.result-container-animation {
+    z-index: 10005;
+    animation: resultShow 1s forwards linear;
+
+}
+
+@keyframes resultShow {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.result-inner {
+    margin: 0 auto;
+    width: 500px;
+    border: 6px solid #fff;
+    border-radius: 4px;
+}
+
+.result-inner:hover {
+    box-shadow: 0 0 30px rgb(252, 239, 241);
+}
+
+.result-container .means {
+    /* 단어 목록 보여지는곳  */
+    margin: 50px auto;
+    width: 80%;
+    height: 300px;
+
+    padding: 10px;
+    overflow: auto;
+    background: transparent;
+    border-radius: 7px;
+    border: 3px solid #49e2fd;
+    color: #fff;
+    font-size: 40px;
+
+}
+
+.means p {
+    color: #fff;
+    font-size: 30px;
+    text-align: center;
+    padding-bottom: 10px;
+
+}
+
+
+
+.result-container .means .words {
+    margin-bottom: 20px;
+}
+
+.result-container .result-box {
+    /* 유저정보, 점수 출력 부분 */
+    font-size: 40px;
+    height: 15%;
+    width: 80%;
+    padding: 20px;
+    border: 1px solid #fff;
+    border-radius: 2px;
+    margin: 0 auto;
+    text-align: center;
+    color: #fff;
+    background-color: transparent;
+}
+
+.result-container .result-box .victory {
+    display: block;
+    font-size: 40px;
+    margin-bottom: 5px;
+    animation: gameover 1s alternate infinite;
+
+}
+
+@keyframes gameover {
+    from {
+        transform: scale(1);
+    }
+
+    to {
+        transform: scale(1.3);
+    }
+}
+
+
+.result-container .result-box .defeat {
+    display: none;
+}
+
+.result-container .retry {
+    /* 다시하기 */
+
+    margin: 0 auto;
+    /* position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translate(-50%, 0); */
+    border: 1px solid #000;
+}
+
+.result-container .retry #retry {
+    text-align: center;
+    margin: 30px auto;
+    cursor: pointer;
+    width: 40%;
+    height: 50px;
+    background: #21638b;
+    border-radius: 3px;
+    border: 2px solid #fff;
+    color: #fff;
+
+    font-size: 40px;
+    line-height: 45px;
+}
+
+
+
+/* 충돌 처리시 애니메이션  */
+.redline {
+    animation: red-Animation 0.4s linear infinite;
+}
+
+@keyframes red-Animation {
+    0% {
+        border: 1px solid white;
+    }
+
+    25% {
+        transform: translateX(-10px);
+    }
+
+    50% {
+        border: 4px solid red;
+    }
+
+    75% {
+        transform: translateX(10px);
+    }
+
+    100% {
+        border: 1px solid white;
+    }
+}

@@ -1,36 +1,5 @@
-
-// import { gameData } from './gameData.js';
 import * as create from './create.js';
-import * as answer from './answerCheck.js';
-import { gameData } from './gameData.js';
 import * as init from './initGameData.js';
-import { sonagiStart } from './gameStart.js';
-/*
-
-1. 단어를 생성을 해서 떨어뜨림
-ㄴ 난이도 임시로 1배속
-
-
-const idx = post.findIndex(obj => obj.title === '세 번째');
-
-console.log(idx);
-console.log(post[idx]);
-
-*/
-
-// setInterval(()=>{
-//     setTimeout(()=>{
-//         console.log('ㅎㅇㅎㅇ');
-//     }, Math.random()*5000)
-// }, 2000);
-
-//게임시작 버튼
-
-
-
-
-
-
 
 const $inputWord = document.getElementById('typing');
 const $btn = document.getElementById('btn');
@@ -42,6 +11,7 @@ $btn.onmouseout=()=>{
     $btn.innerText="게임 준비";
 }
 
+// 게임 시작 버튼
 $btn.onclick = () => { 
     $btn.onclick=null;
     $inputWord.focus();
@@ -51,12 +21,9 @@ $btn.onclick = () => {
     $btn.innerText = '게임 중...';
     init.gameLife();
     create.gameStart();
-    // setTimeout(()=> {
-    //     $btn.removeEventListener
-    // },2000);
 };
 
-// 다시하기 버튼
+// 결과창의 다시하기 버튼
 const $retryBtn = document.getElementById('retry');
 $retryBtn.onclick = () => {
     // init.gameLife();
