@@ -1,5 +1,8 @@
 import * as create from './create.js';
 import * as init from './initGameData.js';
+import { sonagiStart } from './gameStart.js';
+import * as answer from './answerCheck.js';
+import { gameData } from './gameData.js';
 
 const $inputWord = document.getElementById('typing');
 const $btn = document.getElementById('btn');
